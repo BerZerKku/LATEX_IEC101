@@ -1,0 +1,86 @@
+\documentclass[russian,utf8,pointsection]{eskdtext}
+\usepackage{cmap}			% Поиск по русским словам в конечном pdf документе
+\usepackage{eskdchngsheet}
+\usepackage[T2A]{fontenc}
+\usepackage{pscyr}			% Подключение "красивых" шрифтов киррилицы
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{ifthen}
+
+% работа с сылками
+\usepackage{hyperref}
+% \usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor} 
+\hypersetup{			
+	unicode=true,           				% русские буквы в разделе PDF
+	pdftitle={Аппаратура АВАНТ},			% Заголовок
+	pdfauthor={Щеблыкин М.В.}, 				% Автор
+	pdfsubject={Руководство по использованию протокола МЭК 870-5-101},	% Тема 
+	colorlinks=true,      					% false: ссылки в рамках; true: цветные ссылки 
+	linkcolor=black,        				% внутренние ссылки
+	citecolor=blue,        					% на библиографию
+	filecolor=blue,        					% на файлы
+	urlcolor =blue          				% на URL 
+}
+
+% Дает доступ к командам:
+% \MakeTextUppercase{} - сделать все символы заглавными
+\usepackage{textcase} 
+
+%Изменение отображения Содержания
+%\makeatletter
+%\renewcommand{\l@section}{\@dottedtocline{1}{0em}{1.25em}}
+%\renewcommand{\l@subsection}{\@dottedtocline{2}{1.25em}{1.75em}}
+%\renewcommand{\l@subsubsection}{\@dottedtocline{3}{2.75em}{2.6em}}
+%\makeatother
+
+% Работа с таблицами
+% p{} - top align, m{} - middle align, b{} - bottom align
+\usepackage{ltablex} 										% longtable с функциональностю tabularx
+\usepackage{multirow} 										% Слияние строк в таблице
+\renewcommand{\tabularxcolumn}[1]{>{\arraybackslash}m{#1}}	% выравнивание в ячейке таблицы по середине по вертикали
+\newcolumntype{M}[1]{>{\centering \arraybackslash}m{#1}} 	% колонка с заданной шириной и выравниванием по центру
+\newcolumntype{Z}{>{\centering \arraybackslash} X} 			% колонка с выравниванием по центру
+
+% Заполнение граф Титульного листа и основной надписи
+\ESKDcompany{ООО <<Прософт-Системы>>}
+\ESKDclassCode{ОКП xx xxxx}
+\ESKDtitle{Аппаратура <<АВАНТ>>}
+\ESKDdocName{Руководство по использованию протокола МЭК 870-5-101}
+\ESKDsignature{ПБКМ.424325.00x РЭ}
+\ESKDgroup{\normalsize ООО <<Прософт-Системы>>}
+
+% основная надпись
+\ESKDauthor{\ESKDfontII Щеблыкин М.В.}
+\ESKDchecker{\ESKDfontII Макаров Е.Г.}
+%\ESKDnormContr{\ESKDfontII Бунина О.Ю.}
+\ESKDapprovedBy{\ESKDfontII Чирков А.Г.}
+\ESKDdate{2018/06/28}
+\ESKDcolumnI{Аппаратура <<АВАНТ>> \\ \vspace{0.5cm} \ESKDfontIII{Руководство по использованию протокола МЭК870-5-101}}
+
+% Добавлено отображение Города на Титульном листе
+\renewcommand{\ESKDtheTitleFieldX}{Екатеринбург \\ \ESKDtheYear}
+
+% Уменьшен размер шрифта для заголовков секций
+\ESKDsectStyle{section}{\large \bfseries \MakeTextUppercase}
+
+% Выравнивание по центру.
+% Предназначено для выравнивания надписей в шапке таблицы
+\newcommand{\calign}[1]{\centering #1 \arraybackslash} 
+
+\begin{document} 
+	\maketitle
+	\tableofcontents
+	
+	\newpage
+
+	\input{section/Overview}
+	\input{section/Specification}
+	\input{section/Connection}
+	
+ 	\ESKDappendix{Обязательное}{Карта памяти} \label{app:map}
+ 	\input{appendix/appMap}
+
+\end{document}
+
