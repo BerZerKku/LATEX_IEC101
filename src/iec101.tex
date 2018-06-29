@@ -69,6 +69,9 @@
 % Предназначено для выравнивания надписей в шапке таблицы
 \newcommand{\calign}[1]{\centering #1 \arraybackslash} 
 
+\newcommand{\adrY}{$\bullet$}
+\newcommand{\adrN}{ }
+
 \begin{document} 
 	\maketitle
 	\tableofcontents
@@ -79,8 +82,11 @@
 	\input{section/Specification}
 	\input{section/Connection}
 	
- 	\ESKDappendix{Обязательное}{Карта памяти} \label{app:map}
- 	\input{appendix/appMap}
+ 	\ESKDappendix{Обязательное}{Карта памяти данных класса 2.} \label{app:map101_2}
+ 	\input{appendix/appMap101Class2} 
+ 	
+ 	\ESKDappendix{Обязательное}{Карта памяти данных класса 1.} \label{app:map101_1}
+ 	\input{appendix/appMap101Class1}
 
 \end{document}
 
